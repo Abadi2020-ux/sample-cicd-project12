@@ -1,2 +1,6 @@
+authenticated.users=[{"id"\:"9d8e67a0-af5a-4b10-b654-879c95ba0768","token"\:"96e7b701-6bc4-4045-a365-b718b8669f48","userId"\:"abadi2121","refreshToken"\:"","baseUrl"\:"https\://anypoint.mulesoft.com/"},{"id"\:"63a5d4a6-5d5b-4ea7-a5ca-66808665dc87","token"\:"40b100f1-ec6f-4d0e-b45c-3b17ac8da09b","userId"\:"abadi2222","refreshToken"\:"","baseUrl"\:"https\://anypoint.mulesoft.com/"}]
+current.token=40b100f1-ec6f-4d0e-b45c-3b17ac8da09b
+current.user=abadi2222
 eclipse.preferences.version=1
 expiration.time=30
+org.mule.tooling.amc.apps={"userProjectMap"\:{"abadi2121"\:{"cicd-jenkins"\:"{\\"applicationName\\"\:\\"cicd-jenkins\\",\\"muleRuntime\\"\:\\"4.1.4\\",\\"properties\\"\:{}}"}}}

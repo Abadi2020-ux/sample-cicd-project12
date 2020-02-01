@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="c1df4d5a-4aa3-4f27-b782-e17081598a92" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="ee3fb8e1-f103-4577-8cec-9b8b9a4aed31" basePath="/sqlrest">
+		<http:request-connection host="www.thomas-bayer.com" />
+	</http:request-config>
+	<flow name="thomas-bayer-customer-apiFlow" doc:id="1c0254a6-36b8-42fc-8734-a9e1c833c56e" >
+		<http:listener doc:name="Listener" doc:id="fe1fab1c-9d3e-48d4-95f1-0fa69426f15a" config-ref="HTTP_Listener_config" path="/cust"/>
+	     <http:request method="GET" doc:name="Request" doc:id="ca4cc329-4361-45eb-9d92-b56288b2a8e5" config-ref="HTTP_Request_configuration" path="/CUSTOMER">
+			<http:query-params ><![CDATA[#[output application/java
+---
+{
+	"cid" : "attributes.queryParams.cid"
+}]]]></http:query-params>
+		</http:request>
+	</flow>
+</mule>

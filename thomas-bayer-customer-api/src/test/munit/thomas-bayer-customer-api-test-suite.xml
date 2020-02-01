@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="thomas-bayer-customer-api-test-suite.xml" />
+	<munit:test name="thomas-bayer-customer-api-test-suite-thomas-bayer-customer-apiFlowTest" doc:id="5caefeac-2e0a-4665-bf4a-aa78f288ca15" description="Test">
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="cfcadd8a-319b-4041-af7a-1de7b6f5e369" >
+				<munit:attributes value="[{queryParams{cid:1}}]" />
+			</munit:set-event>
+			<flow-ref doc:name="Flow-ref to thomas-bayer-customer-apiFlow" doc:id="ab7c420b-014d-48f9-a197-091eb20a4578" name="thomas-bayer-customer-apiFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="60192705-8717-46d0-880f-16d1598129c2" expression="#[payload]" is="#[MunitTools::notNullValue()]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
